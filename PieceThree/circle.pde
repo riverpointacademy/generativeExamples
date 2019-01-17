@@ -28,7 +28,7 @@ PVector circumCenter(ArrayList<PVector> triPoints) {
 }
 
 float getRadius(PVector A, PVector P) {
- return sqrt(pow((P.x-A.x),2)+pow((P.y-A.y),2)); 
+ return sqrt(pow((A.x-P.x),2)+pow((A.y-P.y),2)); 
 }
 
 ArrayList<PVector> circlePoints;  //used to hold onto points for a circle that will be drawn
@@ -71,6 +71,7 @@ void makeCircumCircle(float x, float y, ArrayList<PVector> triPoints) {
    
    println("TriPoints: "+triPoints);
    println("circumCenter: (" + x + ","+y+")");
+   println("radius: "+radius);
 }
 
 // Change this
