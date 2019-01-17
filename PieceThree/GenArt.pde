@@ -13,7 +13,9 @@ void generateArtwork()
  
  // Change this
  // these numbers effect the grid size and number of shapes drawn
-  makeShapeGrid(4,4,11);
+  makeShapeGrid(1,1,60);
+ // triCircum(mouseX, mouseY);
+  //makeTriangle(mouseX, mouseY, 20);
  
 }
 
