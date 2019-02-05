@@ -34,10 +34,12 @@ float getRadius(PVector A, PVector P) {
 ArrayList<PVector> circlePoints;  //used to hold onto points for a circle that will be drawn
 void findCirclePoints(float centerX, float centerY, float radius) {
   circlePoints.clear();
-  // Change this
+  
+  // put center in list first
+  circlePoints.add(new PVector(centerX, centerY));
   for(float i = 0; i<PI; i+=PI/36) {
-    float tx = radius*cos(i)*cos(i) + centerX;
-    float ty = radius*cos(i)*sin(i) + centerY;
+    float tx = radius*cos(i)*cos(i)+centerX;
+    float ty = radius*cos(i)*sin(i)+centerY;
     circlePoints.add(new PVector(tx,ty));
     //println(circlePoints.get(0).x);  // debugging
   }
