@@ -11,6 +11,8 @@
 
 import de.looksgood.ani.*;
 import processing.serial.*;
+import processing.pdf.*;
+
 
 
 Randomizer randomizer; // used to generate Perlin randomness
@@ -170,6 +172,7 @@ SimpleButton UIMessage;
 
 void setup() 
 {
+  beginRecord(PDF,"everything.pdf");
   randomizer = new Randomizer(0, perlinDelta);
 
   circlePoints = new ArrayList<PVector>();
@@ -408,6 +411,8 @@ boolean serviceBrush()
 
 void drawToDoList()
 {  
+  
+  
   // Erase all painting on main image background, and draw the existing "ToDo" list
   // on the off-screen buffer.
 
@@ -518,6 +523,8 @@ void drawToDoList()
 
     imgMain = offScreen.get(0, 0, offScreen.width, offScreen.height);
   }
+  
+  
 }
 
 
@@ -564,7 +571,10 @@ void draw() {
   } else
   {
 
+  
     image(imgMain, 0, 0, width, height);    // Draw Background image  (incl. paint paths)
+    
+   
 
     // Draw buttons image
     image(imgButtons, 0, 0);
@@ -574,6 +584,8 @@ void draw() {
 
     // Draw locator crosshair at xy pos, less crosshair offset
     image(imgLocator, MotorLocatorX-10, MotorLocatorY-15);
+    
+    
   }
 
 
@@ -621,6 +633,7 @@ void draw() {
 
 
 void mousePressed() {
+  
   boolean doHighlightRedraw = false;
 
   //The mouse button was just pressed!  Let's see where the user clicked!
@@ -690,6 +703,8 @@ void mousePressed() {
     drawToDoList();
   } else if ( quitButton.isSelected() )  
     quitApp();
+    
+   
 }
 
 
@@ -784,6 +799,10 @@ void keyPressed()
   {
     key = Character.toLowerCase(key);
     println("Key pressed" + key); 
+    
+    if (key == 'r') {
+      //
+    }
 
     if ( key == 'b')   // Toggle brush up or brush down with 'b' key
     {
